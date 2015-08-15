@@ -28,6 +28,9 @@ class MoviesController < ApplicationController
 
   # get
   def confirmation
+    puts '---------movies#confirmation----------'
+    puts params
+    puts '---------movies#confirmation----------'
     # catch-all confirmation
 
   end
