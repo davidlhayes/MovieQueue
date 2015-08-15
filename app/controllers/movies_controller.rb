@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  before_filter :authorize
+
   # get
   def index
     # render a list ... give a form to check off a movie
