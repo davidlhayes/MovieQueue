@@ -1,2 +1,14 @@
-<h1>Movies#new</h1>
-<p>Find me in app/views/movies/new.html.erb</p>
+<h4>Add a movie to your personal queue</h4>
+
+<%= form_for @movie, url: {action: 'create'}, html: {class: 'form-group'} do |f| %>
+
+  User: <%= f.user_id :user_id %>
+  Title: <%= f.text_field :title %>
+  Importance: <%= f.number_field :importance %>
+  Reason: <%= f.text_field :reason %>
+
+  <%= f.submit 'Add Movie' %>
+
+<% end %>
+
+<li><a href="/">Back to Movie Queue</a></li>

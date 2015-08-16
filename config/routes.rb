@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # set landing page (in place of welcome to Rails)
   root 'movies#index'
 
