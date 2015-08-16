@@ -9,18 +9,24 @@
     </thead>
     <tbody>
       <% @movies.each do |item| %>
-      <tr>
-        <td><%= item.user_id %></td>
-        <td><%= item.title %></td>
-        <td><%= item.importance %></td>
-        <td><%= item.reason %></td>
-        <td>
-          <%= form_for item, url: {action: 'delete'} do |f| %>
-            <%= f.hidden_field :id %>
-            <%= f.submit 'Watched' %>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
+
+        <% if item.user_id == session[:user_id] %>
+
+          <tr>
+            <td><%= item.user_id %></td>
+            <td><%= item.title %></td>
+            <td><%= item.importance %></td>
+            <td><%= item.reason %></td>
+            <td>
+              <%= form_for item, url: {action: 'delete'} do |f| %>
+                <%= f.hidden_field :id %>
+                <%= f.submit 'Watched' %>
+              <% end %>
+            </td>
+          </tr>
+
+        <% end %><!-- end check on user_id -->
+
+      <% end %> <!-- end loop -->
     </tbody>
 </table>

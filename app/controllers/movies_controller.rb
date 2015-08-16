@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   # get
   def new
     # displays a form to create a new movie queue item
+    @user_id = session[:user_id]
     @movie = Movie.new
   end
 
@@ -21,7 +22,6 @@ class MoviesController < ApplicationController
     puts params
     puts '----------------'
     @movie = Movie.create(movie_params)
-    puts 'made it'
   end
 
   # post
@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
 private
 
   def movie_params
-    params.require(:movie).permit(:title, :reason, :importance)
+    params.require(:movie).permit(:user_id, :title, :reason, :importance)
   end
 
 
