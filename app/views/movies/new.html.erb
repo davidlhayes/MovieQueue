@@ -2,11 +2,11 @@
 <%= @user_id %>
 <%= form_for @movie, url: {action: 'create'}, html: {class: 'form-group'} do |f| %>
 
-  User: <%= f.number_field :user_id %>
-  Title: <%= f.text_field :title %>
-  Importance: <%= f.number_field :importance %>
-  Reason: <%= f.text_field :reason %>
-  <%= f.submit 'Add Movie' %>
+    User: <%= f.number_field :user_id %>
+    Title: <%= f.text_field :title %>
+    Importance: <%= f.number_field :importance %>
+    Reason: <%= f.text_field :reason %>
+    <%= f.submit 'Add Movie' %>
 
 <% end %>
 

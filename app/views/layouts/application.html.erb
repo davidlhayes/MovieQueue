@@ -9,21 +9,29 @@
 <body>
   <div class="container">
     <header>
-       <h1>Personal Movie Queue</h1>
        <div class="row">
-         <div class="col-md-4 col-md-offset-8">
+          <div class="col-md-8">
+            <h3>Personal Movie Queue</h3>
+          </div>
+          <div class="col-md-4">
            <nav>
-             <a class="btn btn-default" href="#" role="button">Link</a>
-             <a class="btn btn-default" href="#" role="button">Link</a>
-             <a class="btn btn-default" href="#" role="button">Link</a>
-             <a class="btn btn-default" href="#" role="button">Link</a>
+             <% if @current_user.nil? %>
+               <a class="btn btn-default" href="/users/register" role="button">Register</a>
+             <% else %>
+               <a class="btn btn-default" href="/" role="button">Movie List</a>
+               <a class="btn btn-default" href="/movies/new" role="button">Add a Movie</a>
+               <a class="btn btn-default" href="/users/logout" role="button">Logout</a>
+             <% end %>
            </nav>
          </div>
        </div>
     </header>
+    <div class="row">
+      <div class="col-md-12">
 
-    <%= yield %>
-
+            <%= yield %>
+      </div>
+    </div>
     <footer>
       <h4>&copy;2015 David Hayes</h4>
 
